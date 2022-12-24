@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/7fe850a9b1.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .center{
+            max-width: 960px;
+            padding: 0 2%;
+            margin:0 auto;
+            display:flex;
+        }
+        header{
+            background-color: #5e3ea1;
+            padding: 10px 0;
+            
+            flex-wrap: wrap;
+        }
+
+
+        .logo{
+            width: 50%;
+            color: white;
+        }
+
+        .menu-desktop{
+            width: 50%;
+        }
+
+        .menu-desktop ul li{
+            display: inline-block;
+            margin:0 10px;
+        }
+
+        .menu-desktop ul li a{
+            color: rgb(226, 201, 201);
+            text-decoration: none;
+        }
+
+        .menu-mobile{  /*escondendo o menu*/
+            display:block;
+            text-align: right;
+            width: 50%;
+
+        }
+
+        .menu-mobile i{
+            cursor: pointer;
+            color: rgb(22, 21, 21);
+            font-size: 19px;
+        }
+
+        .menu-mobile ul{
+            background-color: rgb(22, 18, 18);
+            opacity: 0;
+            transition: 1s;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 60px;
+            text-align: center;
+
+        }
+
+        .show-menu{
+             opacity: 0 !important; 
+        }
+
+        .menu-mobile ul li a{
+            color: #1f1d1d;
+            text-decoration: none;
+            padding: 8px 0;
+            display: block;
+
+        }
+
+        @media screen and (max-width: 768px) { /*quando um menu aparece o outro some*/
+               .menu-mobile{display: block;}
+               /* .menu-mobile ul{display: none;}  */
+               .menu-desktop{
+                      display: none;
+                    }
+        }
+    </style>
+</head>
+<body>
+
+          <header>
+            <div class="center">
+
+               <div class="logo">
+                     <h2>Danki code</h2>
+               </div><!--logo-->
+               <div class="menu-desktop">
+               
+                     <ul>
+                        <li><a href="#">home</a></li>
+                        <li><a href="#">sobre</a></li>
+                        <li><a href="#">contato</a></li>
+                        
+                     </ul>
+                </div><!--menu-desktop-->
+               <div class="menu-mobile">
+                <a class="icon-menu" href="https://google.com"><i class="fa-solid fa-bars"></i></a>  
+                        <ul>
+
+                        <li><a href="#">home</a></li>
+                        <li><a href="#">sobre</a></li>
+                        <li><a href="#">contato</a></li>
+                           
+                        </ul>
+ 
+               </div><!--menu-mobile-->
+         
+            </div><!--center-->      
+         </header>
+   
+
+
+
+
+
+<script>
+    var menuBar = document.querySelector('.menu-mobile a.icon-menu');
+
+    menuBar.addEventListener('click',(e)=>{
+           e.preventDefault();
+         let menuMobile = document.querySelector('.menu-mobile ul');
+         menuMobile.classList.add('show-menu');
+    });
+</script>
+</body>
+</html>
